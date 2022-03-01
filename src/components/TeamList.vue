@@ -1,16 +1,18 @@
 <template>
   <div class="body">
-    <div class="ranking-header"><h1>Fahrer-Ranking</h1></div>
+    <div class="ranking-header"><h1>Team-Ranking</h1></div>
     <li v-for="team in teams" :key="team.name">
-      <div v-for="driver in team.drivers" :key="driver.name">
-        <div class="driver">
-          <div class="rank"><h2>{{driver.rank}}</h2></div>
+      <div class="team">
+        <div class="team-header">
+          <h2 class="rank">{{team.rank}}</h2>
+          <h1>{{ team.name }}</h1>
+        </div>
           <div class="info">
-            <img :src="getImgUrl(driver.picture)"/>
-            <div class="data">
-              <h2>{{driver.name}}</h2>
-              <h2 style="padding-right: 5%;"> {{ driver.points }} Pts</h2>
-            </div>
+              <h2 class="score"> {{ team.points }} Punkte</h2> <br>
+              <div v-for="driver in team.drivers" :key="driver.name">
+                <h2 class="driver-name">{{driver.name}}</h2>
+                <h2 class="driver-name">{{driver.points}} Pts</h2>
+              <img :src="getImgUrl(driver.picture)"/>
           </div>
         </div>
       </div>
@@ -22,7 +24,7 @@
 import data from '../data.json';
 
 export default {
-  name: 'DriverList',
+  name: 'TeamList',
   props: {
     msg: String
   },
@@ -43,11 +45,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .ranking-header {
-  z-index: 3;
   display: inline-block;
   position: sticky;
   top: 20%;
-  width: 30vw;
+  width: 20vw;
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
@@ -62,22 +63,21 @@ export default {
   line-height: 100%;
 }
 
-.driver .rank {
-  float: left;
-  background-color: #ffffff;
-  height: 100%;
-  width: 20%;
-  border-radius: 0 0 2vh 0;
+.team-header {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  font-family: "F1-Bold";
 }
 
-.driver .rank h2 {
-  padding-top: 20%;
-  line-height: 100%;
+.team .rank {
   margin: auto;
-  font-size: 2rem;
+  background-color: #ffffff;
+  height: 4vh;
+  width: 100%;
+  border-radius: 0 0 2vh 0;
+  padding-top: 1vh;
 }
-
-.driver h1 {
+.team h1 {
   color: #ffffff;
   padding-top: 2vh;
   padding-bottom: 1vh;
@@ -86,7 +86,6 @@ export default {
 }
 h2 {
   font-family: "F1";
-  display: inline-block;
 }
 h3 {
   margin: 40px 0 0;
@@ -102,34 +101,35 @@ li {
 a {
   color: #42b983;
 }
-.driver {
+.team {
   background-color: rgba(0,0,30,1);
-  position: relative;
   border-radius: 0 0 2vw 0;
-  width: 30vw;
-  height: 8vh;
+  width: 20vw;
+  height: 30vh;
   margin-bottom: 2vh;
 }
-.driver .info {
-  text-align: center;
-  display: flex;
-  height: 100%;
+.team .info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 6fr;
   color: #ffffff;
 }
-.driver .info .driver-name {
+.team .info .driver-name {
   font-size: 1rem;
+  grid-row-start: 2;
+  margin: 0;
 }
-.driver .info .data {
-  margin-left: 5%;
+.team .info .score {
+  grid-column-start: 1;
+  grid-row-start: 1;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  margin-left: 50%;
+  margin-top: 0;
+  padding-top: 0;
 }
-.driver img {
-  display: inline-block;
-  height: 90%;
+.team img {
+  width: 50%;
   margin: auto;
-  margin-right: 0;
-  margin-left: 5%;
+  grid-row-start: 1;
 }
 </style>
