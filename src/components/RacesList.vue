@@ -1,15 +1,13 @@
 <template>
   <div class="body">
-    <div class="ranking-header"><h1>Fahrer-Ranking</h1></div>
+    <div class="ranking-header"><h1>Streckenkalender</h1></div>
     <TransitionGroup class="list" tag="ul">
-      <li v-for="driver in drivers" :key="driver.rank">
+      <li v-for="race in races" :key="race">
           <div class="driver">
-            <div class="rank"><h2>{{driver.rank}}</h2></div>
             <div class="info">
-              <img :src="getImgUrl(driver.picture)"/>
+              <img :src="getImgUrl(race.picture)"/>
               <div class="data">
-                <h2>{{driver.name}}</h2>
-                <h2 style="padding-right: 5%;"> {{ driver.points }} Pts</h2>
+                <h2>{{race.name}}</h2>
               </div>
             </div>
           </div>
@@ -22,37 +20,19 @@
 import data from '../data.json';
 
 export default {
-  name: 'DriverList',
+  name: 'RacesList',
   props: {
     msg: String
   },
   methods :{
     getImgUrl(name) {
-      let images = require.context('../assets/drivers/', false, /\.png$/)
+      let images = require.context('../assets/races/', false, /\.png$/)
       return images('./' + name + ".png");
     },
   },
   data(){
-    let Drivers = [];
-    for(let i in data.teams){
-      for(let t in data.teams[i].drivers){
-        Drivers.push(data.teams[i].drivers[t]);
-      }
-    }
-
-    Drivers = Drivers.sort((a, b) => {
-      return a.points - b.points;
-    })
-
-    Drivers = Drivers.reverse();
-
-    for(let i in Drivers){
-      let t = parseInt(i) + parseInt(1);
-      Drivers[i].rank = parseInt(t);
-    }
-
     return {
-      drivers: Drivers
+      races: data.races
     }
   }
 }
@@ -70,7 +50,7 @@ li {
   display: inline-block;
   position: sticky;
   top: 20%;
-  width: 30vw;
+  width: 45vw;
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
@@ -129,7 +109,7 @@ a {
   background-color: rgba(0,0,30,1);
   position: relative;
   border-radius: 0 0 2vw 0;
-  width: 30vw;
+  width: 45vw;
   height: 8vh;
   margin-bottom: 2vh;
 }

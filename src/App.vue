@@ -8,24 +8,34 @@
   <div class="content">
     <TeamList class="TeamList"/>
     <DriverList/>
+    <RacesList/>
   </div>
 </template>
 
 <script>
 import TeamList from './components/TeamList.vue'
 import DriverList from './components/DriverList.vue'
+import RacesList from './components/RacesList.vue'
 
 export default {
   name: 'App',
   components: {
     TeamList,
-    DriverList
+    DriverList,
+    RacesList
   }
 }
 
 </script>
 
 <style>
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s ease-in-out;
+}
+
 @font-face {
   font-family: "F1";
   src: local("F1"),

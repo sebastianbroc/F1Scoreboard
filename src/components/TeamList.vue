@@ -35,8 +35,25 @@ export default {
     }
   },
   data(){
+    let Teams = [];
+    for(let i in data.teams){
+      Teams.push(data.teams[i]);
+      console.log(1);
+    }
+
+    Teams = Teams.sort((a, b) => {
+      return a.points - b.points;
+    })
+
+    Teams = Teams.reverse();
+
+    for(let i in Teams){
+      let t = parseInt(i) + parseInt(1);
+      Teams[i].rank = parseInt(t);
+    }
+
     return {
-      teams: data.teams
+      teams: Teams
     }
   }
 }
