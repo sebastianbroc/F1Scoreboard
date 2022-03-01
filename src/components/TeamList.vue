@@ -12,7 +12,7 @@
               <div v-for="driver in team.drivers" :key="driver.name">
                 <h2 class="driver-name">{{driver.name}}</h2>
                 <h2 class="driver-name">{{driver.points}} Pts</h2>
-              <img :src="getImgUrl(driver.picture)"/>
+                <img :src="getImgUrl(driver.picture)"/>
           </div>
         </div>
       </div>
@@ -38,7 +38,13 @@ export default {
     let Teams = [];
     for(let i in data.teams){
       Teams.push(data.teams[i]);
-      console.log(1);
+    }
+
+    for(let i in Teams){
+      Teams[i].points = 0;
+      for(let t in Teams[i].drivers){
+        Teams[i].points += Teams[i].drivers[t].points;
+      }
     }
 
     Teams = Teams.sort((a, b) => {
@@ -65,7 +71,7 @@ export default {
   display: inline-block;
   position: sticky;
   top: 20%;
-  width: 20vw;
+  width: 25vw;
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
@@ -121,7 +127,7 @@ a {
 .team {
   background-color: rgba(0,0,30,1);
   border-radius: 0 0 2vw 0;
-  width: 20vw;
+  width: 25vw;
   height: 30vh;
   margin-bottom: 2vh;
 }
@@ -145,8 +151,8 @@ a {
   padding-top: 0;
 }
 .team img {
-  width: 50%;
-  margin: auto;
+  width: 40%;
+  margin-bottom: 50px;
   grid-row-start: 1;
 }
 </style>

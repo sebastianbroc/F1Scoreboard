@@ -74,7 +74,7 @@ li {
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
-  margin-bottom: 3vh;
+  margin-bottom: 1.5vh;
   border-bottom: solid 3px rgb(255,0,0);
   box-shadow: 0 8px 10px -6px black;
 }

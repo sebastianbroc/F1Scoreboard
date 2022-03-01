@@ -68,7 +68,7 @@ export default {
 
 .spacer {
   position: sticky;
-  top: 100px;
+  top: 85px;
   left: 0;
   right: 0;
   margin: 0;
@@ -100,7 +100,7 @@ h1 {
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 2fr 5fr;
+  grid-template-columns: 2fr 2fr 3fr;
   position: relative;
   left: 0;
   right: 0;
