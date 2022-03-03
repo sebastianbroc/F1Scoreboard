@@ -1,8 +1,12 @@
 const fs = require('fs');
 
-const addObject = (path, temperature, humidity, pressure, place, day, month, year, hour, minute, callback) => {
+const logRace = (path, race, drivers, callback) => {
     let array = JSON.parse(fs.readFileSync(path,'utf8',callback));
 
+    console.log(race);
+    console.log(drivers);
+
+    /*
     let newentry = {};
     newentry.temperature = temperature;
     newentry.humidity = humidity;
@@ -18,17 +22,13 @@ const addObject = (path, temperature, humidity, pressure, place, day, month, yea
 
     array = JSON.stringify(array);
     fs.writeFileSync(path,array);
+    */
     return callback(null, "new data entry was added!");
 }
 
 const getData = (path) => {
     let array = JSON.parse(fs.readFileSync(path,'utf8'));
     return (JSON.stringify(array));
-}
-
-const getPlace = (path) => {
-    let array = JSON.parse(fs.readFileSync(path,'utf8'));
-    return (array[array.length-1].place);
 }
 
 const getAllStations = (path) => {
@@ -78,9 +78,8 @@ const getDate = (path) => {
 }
 
 
-module.exports.addObject = addObject;
+module.exports.logRace = logRace;
 module.exports.getData = getData;
-module.exports.getPlace = getPlace;
 module.exports.getDate = getDate;
 module.exports.getAllStations = getAllStations;
 module.exports.getStationsLatest = getStationsLatest;

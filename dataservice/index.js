@@ -25,8 +25,8 @@ app.get('/races', (req, res) => {
     res.send(dataservice.getData('races.json'));
 })
 
-app.post('/lala', (req, res) => {
-    validator.addObject('weatherdb.json', req.body.temperature, req.body.humidity, req.body.pressure, req.body.place, req.body.day, req.body.month, req.body.year, req.body.hour, req.body.minute, (err, res) => {
+app.post('/logRace', (req, res) => {
+    dataservice.logRace('races.json', req.body.race, req.body.drivers, (err, res) => {
 
     });
 })

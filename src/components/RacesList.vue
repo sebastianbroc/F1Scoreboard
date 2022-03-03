@@ -81,7 +81,7 @@
                       <option>Sebastian</option>
                       <option>Manuel</option>
                     </select>
-                    <input type="submit" value="Eintragen" id="submit" v-on:click="submit">
+                    <input type="submit" value="Eintragen" class="submit" v-on:click="submit(race.name)">
                   </form>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default {
         element.classList.remove('active');
       })
     },
-    submit() {
+    submit(racename) {
       let result = [];
       result.push({name: this.first, points: 25});
       result.push({name: this.second, points: 18});
@@ -127,16 +127,20 @@ export default {
       result.push({name: this.sixth, points: 8});
       result.push({name: this.fastest, points: 1});
 
-      console.log(result);
-
       this.drivers.forEach(driver => {
         for(let i in result){
-          if(driver.name === result[i]){
+          if(driver.name === result[i].name){
             driver.points += result[i].points;
           }
         }
       })
 
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({drivers: this.drivers, race: racename})
+      };
+      fetch("http://127.0.0.1:3000/logRace", requestOptions)
 
       //let json = JSON.stringify(this.drivers);
 
@@ -364,7 +368,7 @@ a {
   text-align: center;
 }
 
-#submit {
+.submit {
   text-align: center;
   font-family: "F1";
   grid-template-columns-start: 2;

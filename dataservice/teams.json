@@ -2,19 +2,19 @@
     "teams":[
         {
             "name": "Testteam 1",
-            "points": 100,
+            "points": 0,
             "rank": 1,
             "drivers":[
                 {
                     "name": "Sebastian",
                     "picture": "sebastian",
-                    "points": 200,
+                    "points": 100,
                     "rank": 1
                 },
                 {
                     "name": "Tom",
                     "picture": "tom",
-                    "points": 90,
+                    "points": 100,
                     "rank": 2
                 }
             ]
