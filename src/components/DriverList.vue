@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import data from '../data.json';
-
 export default {
   name: 'DriverList',
   props: {
@@ -33,27 +31,34 @@ export default {
     },
   },
   data(){
-    let Drivers = [];
-    for(let i in data.teams){
-      for(let t in data.teams[i].drivers){
-        Drivers.push(data.teams[i].drivers[t]);
-      }
-    }
-
-    Drivers = Drivers.sort((a, b) => {
-      return a.points - b.points;
-    })
-
-    Drivers = Drivers.reverse();
-
-    for(let i in Drivers){
-      let t = parseInt(i) + parseInt(1);
-      Drivers[i].rank = parseInt(t);
-    }
-
     return {
-      drivers: Drivers
+      drivers: null
     }
+  },
+  created(){
+    fetch("http://127.0.0.1:3000/data")
+      .then(response => response.json())
+      .then(data => {
+        let Drivers = [];
+        for(let i in data.teams){
+          for(let t in data.teams[i].drivers){
+            Drivers.push(data.teams[i].drivers[t]);
+          }
+        }
+
+        Drivers = Drivers.sort((a, b) => {
+          return a.points - b.points;
+        })
+
+        Drivers = Drivers.reverse();
+
+        for(let i in Drivers){
+          let t = parseInt(i) + parseInt(1);
+          Drivers[i].rank = parseInt(t);
+        }
+
+        this.drivers = Drivers;
+      });
   }
 }
 </script>

@@ -21,8 +21,6 @@
 </template>
 
 <script>
-import data from '../data.json';
-
 export default {
   name: 'TeamList',
   props: {
@@ -35,32 +33,40 @@ export default {
     }
   },
   data(){
-    let Teams = [];
-    for(let i in data.teams){
-      Teams.push(data.teams[i]);
-    }
-
-    for(let i in Teams){
-      Teams[i].points = 0;
-      for(let t in Teams[i].drivers){
-        Teams[i].points += Teams[i].drivers[t].points;
-      }
-    }
-
-    Teams = Teams.sort((a, b) => {
-      return a.points - b.points;
-    })
-
-    Teams = Teams.reverse();
-
-    for(let i in Teams){
-      let t = parseInt(i) + parseInt(1);
-      Teams[i].rank = parseInt(t);
-    }
-
     return {
-      teams: Teams
+      teams: null
     }
+  },
+  created(){
+    fetch("http://127.0.0.1:3000/data")
+        .then(response => response.json())
+        .then(data => {
+          let Teams = [];
+          for(let i in data.teams){
+            Teams.push(data.teams[i]);
+          }
+
+          for(let i in Teams){
+            Teams[i].points = 0;
+            for(let t in Teams[i].drivers){
+              Teams[i].points += Teams[i].drivers[t].points;
+            }
+          }
+
+          Teams = Teams.sort((a, b) => {
+            return a.points - b.points;
+          })
+
+          Teams = Teams.reverse();
+
+          for(let i in Teams){
+            let t = parseInt(i) + parseInt(1);
+            Teams[i].rank = parseInt(t);
+          }
+
+          this.teams = Teams;
+
+        });
   }
 }
 </script>

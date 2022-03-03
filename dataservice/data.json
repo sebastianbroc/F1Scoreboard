@@ -1,0 +1,89 @@
+{
+    "teams":[
+        {
+            "name": "Testteam 1",
+            "points": 100,
+            "rank": 1,
+            "drivers":[
+                {
+                    "name": "Sebastian",
+                    "picture": "sebastian",
+                    "points": 200,
+                    "rank": 1
+                },
+                {
+                    "name": "Tom",
+                    "picture": "tom",
+                    "points": 90,
+                    "rank": 2
+                }
+            ]
+        },
+        {
+            "name": "Testteam 2",
+            "points": 169,
+            "rank": 2,
+            "drivers": [
+                {
+                    "name": "Jan",
+                    "picture": "jan",
+                    "points": 100,
+                    "rank": 3
+                },
+                {
+                    "name": "Sascha",
+                    "picture": "sascha",
+                    "points": 100,
+                    "rank": 4
+                }
+            ]
+        },
+        {
+            "name": "Testteam 3",
+            "points": 69,
+            "rank": 3,
+            "drivers": [
+                {
+                    "name": "Hendrik",
+                    "picture": "jan",
+                    "points": 100,
+                    "rank": 5
+                },
+                {
+                    "name": "Manuel",
+                    "picture": "jan",
+                    "points": 100,
+                    "rank": 6
+                }
+            ]
+        }
+    ],
+    "races":[
+        {
+            "name": "Belgien",
+            "date": "01.01.1970",
+            "picture": "belgium",
+            "finished": false,
+            "finishers": [
+                "sebastian",
+                "tom",
+                "jan",
+                "sascha",
+                "hendrik",
+                "manuel"
+            ]
+        },
+        {
+            "name": "Österreich",
+            "date": "01.01.1970",
+            "picture": "austria",
+            "finished": false
+        },
+        {
+            "name": "Brasilien",
+            "date": "01.01.1970",
+            "picture": "brazil",
+            "finished": false
+        }
+    ]
+}

@@ -93,8 +93,6 @@
 </template>
 
 <script>
-import data from '../data.json';
-
 export default {
   name: 'RacesList',
   props: {
@@ -147,16 +145,9 @@ export default {
     }
   },
   data(){
-    let Drivers = [];
-    for(let i in data.teams){
-      for(let t in data.teams[i].drivers){
-        Drivers.push(data.teams[i].drivers[t]);
-      }
-    }
-
     return {
-      races: data.races,
-      drivers: Drivers,
+      races: null,
+      drivers: null,
       first: '',
       second: '',
       third: '',
@@ -165,6 +156,21 @@ export default {
       sixth: '',
       fastest: ''
     }
+  },
+  created(){
+    fetch("http://127.0.0.1:3000/data")
+        .then(response => response.json())
+        .then(data => {
+          let Drivers = [];
+          for(let i in data.teams){
+            for(let t in data.teams[i].drivers){
+              Drivers.push(data.teams[i].drivers[t]);
+            }
+          }
+
+          this.races = data.races;
+          this.drivers = Drivers;
+        });
   }
 }
 </script>
