@@ -172,17 +172,15 @@ export default {
             }
           }
 
-          this.races = data.races;
+          //this.races = data.races;
           this.drivers = Drivers;
         });
 
-    /*
     fetch("http://f1dataservice.hopto.org:3000/races")
         .then(response => response.json())
         .then(data => {
           this.races = data.races;
         });
-        */
 
   }
 }
