@@ -137,9 +137,8 @@ export default {
         }
       })
 
-      let json = JSON.stringify(this.drivers);
-      window.localStorage.setItem('data', json);
 
+      //let json = JSON.stringify(this.drivers);
 
       //this.$refs.form.$el.submit();
     }
@@ -158,7 +157,7 @@ export default {
     }
   },
   created(){
-    fetch("http://127.0.0.1:3000/data")
+    fetch("http://127.0.0.1:3000/teams")
         .then(response => response.json())
         .then(data => {
           let Drivers = [];
@@ -170,6 +169,12 @@ export default {
 
           this.races = data.races;
           this.drivers = Drivers;
+        });
+
+    fetch("http://127.0.0.1:3000/races")
+        .then(response => response.json())
+        .then(data => {
+          this.races = data.races;
         });
   }
 }

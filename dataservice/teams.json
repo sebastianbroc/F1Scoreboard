@@ -57,33 +57,5 @@
                 }
             ]
         }
-    ],
-    "races":[
-        {
-            "name": "Belgien",
-            "date": "01.01.1970",
-            "picture": "belgium",
-            "finished": false,
-            "finishers": [
-                "sebastian",
-                "tom",
-                "jan",
-                "sascha",
-                "hendrik",
-                "manuel"
-            ]
-        },
-        {
-            "name": "Österreich",
-            "date": "01.01.1970",
-            "picture": "austria",
-            "finished": false
-        },
-        {
-            "name": "Brasilien",
-            "date": "01.01.1970",
-            "picture": "brazil",
-            "finished": false
-        }
     ]
 }

@@ -17,11 +17,15 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 })
 
-app.get('/data', (req, res) => {
-    res.send(dataservice.getData('data.json'));
+app.get('/teams', (req, res) => {
+    res.send(dataservice.getData('teams.json'));
 })
 
-app.post('/weather', (req, res) => {
+app.get('/races', (req, res) => {
+    res.send(dataservice.getData('races.json'));
+})
+
+app.post('/lala', (req, res) => {
     validator.addObject('weatherdb.json', req.body.temperature, req.body.humidity, req.body.pressure, req.body.place, req.body.day, req.body.month, req.body.year, req.body.hour, req.body.minute, (err, res) => {
 
     });

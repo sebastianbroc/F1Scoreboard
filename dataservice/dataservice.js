@@ -1,29 +1,24 @@
 const fs = require('fs');
 
-//TODO: daten wirklich validieren
 const addObject = (path, temperature, humidity, pressure, place, day, month, year, hour, minute, callback) => {
     let array = JSON.parse(fs.readFileSync(path,'utf8',callback));
 
-    if((parseInt(temperature) < 60) && (parseInt(temperature) > -80)){
-        let newentry = {};
-        newentry.temperature = temperature;
-        newentry.humidity = humidity;
-        newentry.pressure = pressure;
-        newentry.place = place;
-        newentry.day = day;
-        newentry.month = month;
-        newentry.year = year;
-        newentry.hour = hour;
-        newentry.minute = minute;
+    let newentry = {};
+    newentry.temperature = temperature;
+    newentry.humidity = humidity;
+    newentry.pressure = pressure;
+    newentry.place = place;
+    newentry.day = day;
+    newentry.month = month;
+    newentry.year = year;
+    newentry.hour = hour;
+    newentry.minute = minute;
 
-        array.push(newentry);
+    array.push(newentry);
 
-        array = JSON.stringify(array);
-        fs.writeFileSync(path,array);
-        return callback(null, "new data entry was added!");
-    } else {
-        return callback("could not add data to database! data was possibly wrong", null);
-    }
+    array = JSON.stringify(array);
+    fs.writeFileSync(path,array);
+    return callback(null, "new data entry was added!");
 }
 
 const getData = (path) => {
