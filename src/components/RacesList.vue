@@ -3,83 +3,84 @@
     <div class="ranking-header"><h1>Streckenkalender</h1></div>
     <TransitionGroup class="list" tag="ul">
       <li v-for="race in races" :key="race">
-          <div class="race">
+          <div class="race" :id="`${race.name}`">
             <div class="info">
               <img :src="getImgUrl(race.picture)"/>
+              <h2>{{race.name}}</h2>
               <div class="data">
-                <h2>{{race.name}}</h2>
-                <button @click="enterResults(race.name)" class="button">Ergebnis <br>eintragen</button>
-                <img class="showResult" src="@/assets/finishers_list.png">
+                <button v-if="race.finished != true" @click="enterResults(race.name)" class="button">Ergebnis <br>eintragen</button>
+                <h3 v-if="race.finished">Rennen abgeschlossen</h3>
+                <!--<img class="showResult" src="@/assets/finishers_list.png">-->
                 <div class="results">
                 </div>
                 <div class="enterResults" :id="`${race.name}`">
                   <img @click="hideResult" src="@/assets/close-button.png">
-                  <h1>Ergebnis eintragen</h1>
+                  <h1 style="border-bottom: solid 3px rgb(255,0,0); padding-bottom: 1vh; width: 90%;">Ergebnis eintragen</h1>
                   <img :src="getImgUrl(race.picture)" class="country-enter"/>
                   <h2>{{race.name}}</h2>
                   <form ref="form">
-                    <h1>1. Platz</h1>
+                    <h1 style="color: gold;">1. Platz (25)</h1>
                     <select v-model="first">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>2. Platz</h1>
+                    <h1 style="color: silver;">2. Platz (18)</h1>
                     <select v-model="second">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>3. Platz</h1>
+                    <h1 style="color: #CD7F32">3. Platz (15)</h1>
                     <select v-model="third">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>4. Platz</h1>
+                    <h1>4. Platz (12)</h1>
                     <select v-model="fourth">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>5. Platz</h1>
+                    <h1>5. Platz (10)</h1>
                     <select v-model="fifth">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>6. Platz</h1>
+                    <h1>6. Platz (8)</h1>
                     <select v-model="sixth">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
-                    <h1>Schnellste Runde</h1>
+                    <h1>Schnellste Runde (1)</h1>
                     <select v-model="fastest">
                       <option>Tom</option>
                       <option>Sascha</option>
                       <option>Jan</option>
                       <option>Hendrik</option>
                       <option>Sebastian</option>
-                      <option>Manuel</option>
+                      <option>Jerry</option>
                     </select>
                     <input type="submit" value="Eintragen" class="submit" v-on:click="submit(race.name)">
                   </form>
@@ -213,18 +214,20 @@ li {
 
 .race h1 {
   color: #ffffff;
-  padding-top: 2vh;
-  padding-bottom: 1vh;
-  border-bottom: solid 2px rgb(255,0,0);
   font-size: 1rem;
 }
 h2 {
   font-family: "F1";
   display: inline-block;
   font-size: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 h3 {
-  margin: 40px 0 0;
+  font-family: "F1";
+  color: red;
+  margin: auto;
+  font-size: 0.7rem;
 }
 ul {
   list-style-type: none;
@@ -240,22 +243,28 @@ a {
 .race {
   background-color: rgba(0,0,30,1);
   position: relative;
-  border-radius: 0 0 2vw 0;
+  border-radius: 0 0 1vw 0;
   width: 35vw;
   height: 8vh;
   margin-bottom: 2vh;
 }
 
-.race .finished {
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
+.finished {
+  filter: grayscale(90%);
+  /*-webkit-filter: blur(8px);*/
 }
 .race .info {
-  text-align: center;
+  position: relative;
   display: flex;
+  justify-content: flex-end;
   height: 100%;
   color: #ffffff;
 }
+
+.race .info h2 {
+  margin-left: 5%;
+}
+
 .race .info .driver-name {
   font-size: 1rem;
 }
@@ -267,7 +276,7 @@ a {
   margin-left: 5%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .race img {
   display: inline-block;
@@ -297,7 +306,8 @@ a {
   line-height: 130%;
   margin-top: auto;
   margin-bottom: auto;
-  margin-right: 1%;
+  margin-right: 5%;
+  align-self: end;
   /* Created with https://www.css-gradient.com */
   background: #346715;
   background: -webkit-linear-gradient(bottom, #346715, #05BC01);

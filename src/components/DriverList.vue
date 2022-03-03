@@ -116,6 +116,9 @@ h2 {
   font-family: "F1";
   display: inline-block;
   font-size: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
 }
 h3 {
   margin: 40px 0 0;
@@ -134,7 +137,7 @@ a {
 .driver {
   background-color: rgba(0,0,30,1);
   position: relative;
-  border-radius: 0 0 2vw 0;
+  border-radius: 0 0 1vw 0;
   width: 30vw;
   height: 8vh;
   margin-bottom: 2vh;
