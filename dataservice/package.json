@@ -1,0 +1,11 @@
+{
+  "name": "f1scoreboard_dataservice",
+  "version": "1.0.0",
+  "description": "Datenservice fuer das F1-Scoreboard-Projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Brock",
+  "license": "ISC"
+}

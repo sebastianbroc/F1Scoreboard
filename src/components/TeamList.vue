@@ -82,7 +82,7 @@ export default {
 
 .ranking-header h1 {
   font-family: "F1-Bold";
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 100%;
 }
 
@@ -90,6 +90,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 5fr;
   font-family: "F1-Bold";
+  margin-bottom: 1vh;
 }
 
 .team .rank {
@@ -98,17 +99,20 @@ export default {
   height: 4vh;
   width: 100%;
   border-radius: 0 0 2vh 0;
-  padding-top: 1vh;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
 }
 .team h1 {
   color: #ffffff;
-  padding-top: 2vh;
+  margin: 0;
+  padding-top: 1vh;
   padding-bottom: 1vh;
   border-bottom: solid 2px rgb(255,0,0);
   font-size: 1.6rem;
 }
 h2 {
   font-family: "F1";
+  margin: 10px;
 }
 h3 {
   margin: 40px 0 0;
@@ -128,7 +132,7 @@ a {
   background-color: rgba(0,0,30,1);
   border-radius: 0 0 2vw 0;
   width: 25vw;
-  height: 30vh;
+  height: 35vh;
   margin-bottom: 2vh;
 }
 .team .info {

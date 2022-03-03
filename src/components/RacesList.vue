@@ -81,7 +81,7 @@
                       <option>Sebastian</option>
                       <option>Manuel</option>
                     </select>
-                    <input value="Eintragen" id="submit" v-on:click="submit">
+                    <input type="submit" value="Eintragen" id="submit" v-on:click="submit">
                   </form>
                 </div>
               </div>
@@ -192,7 +192,7 @@ li {
 
 .ranking-header h1 {
   font-family: "F1-Bold";
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 100%;
 }
 
@@ -201,11 +201,12 @@ li {
   padding-top: 2vh;
   padding-bottom: 1vh;
   border-bottom: solid 2px rgb(255,0,0);
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 h2 {
   font-family: "F1";
   display: inline-block;
+  font-size: 1rem;
 }
 h3 {
   margin: 40px 0 0;
@@ -341,7 +342,7 @@ a {
 
 .active form select {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background-color: rgba(0,0,30,1);
   border: solid 2px #ffffff;
 }

@@ -81,7 +81,7 @@ li {
 
 .ranking-header h1 {
   font-family: "F1-Bold";
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 100%;
 }
 
@@ -110,6 +110,7 @@ li {
 h2 {
   font-family: "F1";
   display: inline-block;
+  font-size: 1rem;
 }
 h3 {
   margin: 40px 0 0;
