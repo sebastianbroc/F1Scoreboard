@@ -36,7 +36,7 @@ export default {
     }
   },
   created(){
-    fetch("http://127.0.0.1:3000/teams")
+    fetch("http://f1dataservice.hopto.org:3000/teams")
       .then(response => response.json())
       .then(data => {
         let Drivers = [];

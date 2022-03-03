@@ -141,7 +141,7 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({drivers: this.drivers, race: racename})
       };
-      fetch("http://127.0.0.1:3000/logRace", requestOptions)
+      fetch("http://f1dataservice.hopto.org:3000/logRace", requestOptions)
 
       //let json = JSON.stringify(this.drivers);
 
@@ -162,7 +162,7 @@ export default {
     }
   },
   created(){
-    fetch("http://127.0.0.1:3000/teams")
+    fetch("http://f1dataservice.hopto.org:3000/teams")
         .then(response => response.json())
         .then(data => {
           let Drivers = [];
@@ -176,7 +176,7 @@ export default {
           this.drivers = Drivers;
         });
 
-    fetch("http://127.0.0.1:3000/races")
+    fetch("http://f1dataservice.hopto.org:3000/races")
         .then(response => response.json())
         .then(data => {
           this.races = data.races;
