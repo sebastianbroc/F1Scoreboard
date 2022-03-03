@@ -26,7 +26,7 @@ app.get('/races', (req, res) => {
 })
 
 app.post('/logRace', (req, res) => {
-    dataservice.logRace('races.json', req.body.race, req.body.drivers, (err, res) => {
+    dataservice.logRace('races.json', 'teams.json', req.body.race, req.body.drivers, (err, res) => {
 
     });
 })

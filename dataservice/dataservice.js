@@ -1,10 +1,36 @@
 const fs = require('fs');
 
-const logRace = (path, race, drivers, callback) => {
-    let array = JSON.parse(fs.readFileSync(path,'utf8',callback));
+const logRace = (racepath, driverspath, finishedrace, newdrivers, callback) => {
+    let races = JSON.parse(fs.readFileSync(racepath,'utf8',callback));
+    let driverlist = JSON.parse(fs.readFileSync(driverspath, 'utf8', callback));
 
-    console.log(race);
-    console.log(drivers);
+
+
+    races.races.forEach(race => {
+        if(race.name == finishedrace){
+            race.finished = true;
+        }
+    })
+
+    driverlist.teams.forEach(team => {
+        team.drivers.forEach(driver => {
+            for(let i in newdrivers){
+                if(driver.name == newdrivers[i].name){
+                    driver.points = newdrivers[i].points;
+                }
+            }
+        })
+    })
+
+    races = JSON.stringify(races);
+    fs.writeFileSync(racepath, races);
+
+    driverlist = JSON.stringify(driverlist);
+    fs.writeFileSync(driverspath, driverlist);
+
+    //console.log(race);
+    //console.log(drivers);
+
 
     /*
     let newentry = {};
