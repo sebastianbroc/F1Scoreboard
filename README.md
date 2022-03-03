@@ -1,24 +1,22 @@
-# f1scoreboard
+# Vue.Js F1 Scoreboard
 
-## Project setup
-```
-npm install
-```
+![plot](./src/screenshot.png)
 
-### Compiles and hot-reloads for development
+# Starten der Komponenten
+### Frontend:
 ```
+npm i
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Datenservice:
+In ./datenservice:
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm i
+node index.js
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+Das Frontend wird zurzeit via Heroku bereitgestellt. 
+Der Datenservice läuft auf einem RaspberryPi und ist via NoIp im Internet verfügbar.
