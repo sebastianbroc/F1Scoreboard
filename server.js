@@ -7,8 +7,8 @@ const app = express()
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
-app.get("/service-worker.js", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "public", "service-worker.js"));
+app.get("/serviceworker.js", (req, res) => {
+    res.sendFile(path.join(__dirname, "/dist/service-worker.js"));
 });
 // this * route is to serve project on different page routes except root `/`
 app.get(/.*/, function (req, res) {
