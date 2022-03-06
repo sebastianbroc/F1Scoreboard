@@ -67,13 +67,14 @@ export default {
 }
 
 .spacer {
+  display: none;
   position: sticky;
   top: 85px;
   left: 0;
   right: 0;
   margin: 0;
   padding: 0;
-  z-index: 3;
+  z-index: 2;
   backdrop-filter: blur(5px) grayscale(30%);
   height: 10vh;
   width: 100vw;
@@ -120,5 +121,24 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    margin-top: 15vh;
+    grid-template-columns: 1fr;
+  }
+
+  .spacer {
+    height: 5vh;
+  }
+
+  .header img {
+    width: 15%;
+  }
+
+  .header h1 {
+    font-size: 5vw;
+  }
 }
 </style>

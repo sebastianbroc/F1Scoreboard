@@ -391,4 +391,33 @@ a {
   background: -moz-linear-gradient(bottom, #346715, #05BC01);
   background: linear-gradient(to top, #346715, #05BC01);
 }
+
+@media only screen and (max-width: 600px) {
+  .race {
+    width: 100%;
+  }
+
+  .ranking-header {
+    top: 15%;
+    width: 100%;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .active {
+    width: 100vw;
+    height: 70vh;
+    left: 0;
+    bottom: 0;
+  }
+
+  .active form {
+    grid-template-columns: 1fr 2fr;
+    column-gap: 5px;
+    height: 50vh;
+  }
+}
 </style>

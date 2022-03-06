@@ -164,4 +164,20 @@ a {
   margin-right: 0;
   margin-left: 5%;
 }
+
+@media only screen and (max-width: 600px) {
+  .driver {
+    width: 100%;
+  }
+
+  .ranking-header {
+    top: 15%;
+    width: 100%;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
 </style>

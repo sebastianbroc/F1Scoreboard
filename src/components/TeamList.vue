@@ -86,6 +86,10 @@ export default {
   box-shadow: 0 8px 10px -6px black;
 }
 
+.ranking-header::before {
+  backdrop-filter: blur(5px) grayscale(30%);
+}
+
 .ranking-header h1 {
   font-family: "F1-Bold";
   font-size: 1.3rem;
@@ -164,5 +168,16 @@ a {
   width: 40%;
   margin-bottom: 50px;
   grid-row-start: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .team {
+    width: 100%;
+  }
+
+  .ranking-header {
+    top: 15%;
+    width: 100%;
+  }
 }
 </style>
