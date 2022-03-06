@@ -67,14 +67,13 @@ export default {
 }
 
 .spacer {
-  display: none;
   position: sticky;
   top: 85px;
   left: 0;
   right: 0;
   margin: 0;
   padding: 0;
-  z-index: 2;
+  z-index: 3;
   backdrop-filter: blur(5px) grayscale(30%);
   height: 10vh;
   width: 100vw;
