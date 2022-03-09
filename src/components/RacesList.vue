@@ -141,7 +141,7 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({drivers: this.drivers, race: racename})
       };
-      fetch("http://f1dataservice.hopto.org:3000/logRace", requestOptions)
+      fetch("https://f1dataservice.herokuapp.com/logRace", requestOptions)
 
       //let json = JSON.stringify(this.drivers);
 
@@ -162,13 +162,13 @@ export default {
     }
   },
   created(){
-    fetch("http://f1dataservice.hopto.org:3000/teams")
+    fetch("https://f1dataservice.herokuapp.com/teams")
         .then(response => response.json())
         .then(data => {
           let Drivers = [];
-          for(let i in data.teams){
-            for(let t in data.teams[i].drivers){
-              Drivers.push(data.teams[i].drivers[t]);
+          for(let i in data){
+            for(let t in data[i].drivers){
+              Drivers.push(data[i].drivers[t]);
             }
           }
 
@@ -176,10 +176,10 @@ export default {
           this.drivers = Drivers;
         });
 
-    fetch("http://f1dataservice.hopto.org:3000/races")
+    fetch("https://f1dataservice.herokuapp.com/races")
         .then(response => response.json())
         .then(data => {
-          this.races = data.races;
+          this.races = data;
         });
 
   }

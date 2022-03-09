@@ -36,13 +36,13 @@ export default {
     }
   },
   created(){
-    fetch("http://f1dataservice.hopto.org:3000/teams")
+    fetch("https://f1dataservice.herokuapp.com/teams")
       .then(response => response.json())
       .then(data => {
         let Drivers = [];
-        for(let i in data.teams){
-          for(let t in data.teams[i].drivers){
-            Drivers.push(data.teams[i].drivers[t]);
+        for(let i in data){
+          for(let t in data[i].drivers){
+            Drivers.push(data[i].drivers[t]);
           }
         }
 

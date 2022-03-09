@@ -38,12 +38,12 @@ export default {
     }
   },
   created(){
-    fetch("http://f1dataservice.hopto.org:3000/teams")
+    fetch("https://f1dataservice.herokuapp.com/teams")
         .then(response => response.json())
         .then(data => {
           let Teams = [];
-          for(let i in data.teams){
-            Teams.push(data.teams[i]);
+          for(let i in data){
+            Teams.push(data[i]);
           }
 
           for(let i in Teams){
