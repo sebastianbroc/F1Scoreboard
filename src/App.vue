@@ -1,4 +1,7 @@
 <template>
+  <transition name="fade">
+    <div v-if="show" id="splashscreen"><img src="@/assets/F1.png"></div>
+  </transition>
   <div class="bg-image"></div>
   <div class="header">
     <h1>F1-Sommer-Season 2022</h1>
@@ -23,12 +26,34 @@ export default {
     TeamList,
     DriverList,
     RacesList
+  },
+  data() {
+    return {
+      show: true
+    }
+  },
+  mounted(){
+    setTimeout(() => {
+      this.show = false;
+    }, 2500);
   }
 }
 
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s, filter 1s
+}
+
+.fade-enter,
+.fade-leave-to
+
+{
+  opacity: 0;
+  filter: blur(10px);
+}
 
 .list-move,
 .list-enter-active,
@@ -120,6 +145,26 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#splashscreen {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 20, 1);
+  color: red;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#splashscreen img {
+  width: 20%;
 }
 
 @media only screen and (max-width: 600px) {
