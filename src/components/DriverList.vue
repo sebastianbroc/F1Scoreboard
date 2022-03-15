@@ -88,6 +88,7 @@ li {
   font-family: "F1-Bold";
   font-size: 1.3rem;
   line-height: 100%;
+  align-self: center;
 }
 
 .driver .rank {

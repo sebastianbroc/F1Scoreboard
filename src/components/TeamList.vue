@@ -94,6 +94,7 @@ export default {
   font-family: "F1-Bold";
   font-size: 1.3rem;
   line-height: 100%;
+  align-self: center;
 }
 
 .team-header {
@@ -119,6 +120,7 @@ export default {
   padding-bottom: 1vh;
   border-bottom: solid 2px rgb(255,0,0);
   font-size: 1.6rem;
+  align-self: center;
 }
 h2 {
   font-family: "F1";

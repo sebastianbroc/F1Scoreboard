@@ -1,4 +1,5 @@
 <template>
+  <meta name="apple-mobile-web-app-status-bar-style" content="red">
   <transition name="fade">
     <div v-if="show" id="splashscreen"><img src="@/assets/F1.png"></div>
   </transition>
@@ -93,7 +94,7 @@ export default {
 
 .spacer {
   position: sticky;
-  top: 85px;
+  top: 10%;
   left: 0;
   right: 0;
   margin: 0;
@@ -165,6 +166,10 @@ h1 {
 
 #splashscreen img {
   width: 20%;
+}
+
+body {
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {

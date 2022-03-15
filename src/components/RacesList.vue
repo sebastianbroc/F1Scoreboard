@@ -194,7 +194,7 @@ li {
 }
 
 .ranking-header {
-  z-index: 3;
+  z-index: 4;
   display: inline-block;
   position: sticky;
   top: 20%;
@@ -211,6 +211,7 @@ li {
   font-family: "F1-Bold";
   font-size: 1.3rem;
   line-height: 100%;
+  align-self: center;
 }
 
 .race h1 {
@@ -227,7 +228,8 @@ h2 {
 h3 {
   font-family: "F1";
   color: red;
-  margin: auto;
+  align-self: center;
+  margin-right: 20px;
   font-size: 0.7rem;
 }
 ul {
@@ -248,6 +250,7 @@ a {
   width: 35vw;
   height: 8vh;
   margin-bottom: 2vh;
+  z-index: 2;
 }
 
 .finished {
@@ -304,11 +307,8 @@ a {
 .button {
   font-family: "F1";
   height: 80%;
-  line-height: 130%;
-  margin-top: auto;
-  margin-bottom: auto;
   margin-right: 5%;
-  align-self: end;
+  align-self: center;
   /* Created with https://www.css-gradient.com */
   background: #346715;
   background: -webkit-linear-gradient(bottom, #346715, #05BC01);
