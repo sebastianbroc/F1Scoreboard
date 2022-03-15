@@ -1,7 +1,7 @@
 <template>
   <meta name="apple-mobile-web-app-status-bar-style" content="red">
   <transition name="fade">
-    <div v-if="show" id="splashscreen"><img src="@/assets/F1.png"></div>
+    <div v-if="show" id="splashscreen"><img src="@/assets/F1.png"> <h1 style="font-family: Courier; font-size: 1.5vw; margin-top: 2%;">Daten werden geladen...</h1></div>
   </transition>
   <div class="bg-image"></div>
   <div class="header">
@@ -161,12 +161,16 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex; align-items: center; justify-content: center;
+  display: grid; align-items: center; justify-content: center;
+  grid-template-columns: 1fr;
+  align-content: center;
 }
 
 #splashscreen img {
+  justify-self: center;
   width: 20%;
 }
+
 
 body {
   margin: 0;

@@ -9,7 +9,14 @@
               <h2>{{race.name}}</h2>
               <div class="data">
                 <button v-if="race.finished != true" @click="enterResults(race.name)" class="button">Ergebnis <br>eintragen</button>
-                <h3 v-if="race.finished">Rennen abgeschlossen</h3>
+                <h3 v-if="race.finished">Rennen <br>abgeschlossen</h3>
+                <img v-if="race.finished" src="@/assets/finishers_list.png" class="showPlacements" @mouseover="showPopup(race.name)" @mouseleave="showPopup(race.name)">
+                <div class="popup" :id="`${race.name}`"><span class="popuptext" id="Popup">
+                  <h3>Finish-Rangfolge</h3>
+                  <ol v-for="(driver, index) in race.finishers" :key="driver">
+                    <h4 v-if="index < 6">{{index + 1}}. {{driver}}</h4>
+                    <h4 v-if="index === 6">Schnellste Runde: {{driver}}</h4>
+                  </ol></span></div>
                 <!--<img class="showResult" src="@/assets/finishers_list.png">-->
                 <div class="results">
                 </div>
@@ -99,7 +106,15 @@ export default {
   props: {
     msg: String
   },
-  methods :{
+  methods: {
+    showPopup(race){
+      let popups = document.querySelectorAll('.popup');
+      popups.forEach(element => {
+        if(element.id === race){
+          element.classList.toggle('show');
+        }
+      })
+    },
     getImgUrl(name) {
       let images = require.context('../assets/races/', false, /\.png$/)
       return images('./' + name + ".png");
@@ -139,7 +154,7 @@ export default {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({drivers: this.drivers, race: racename})
+        body: JSON.stringify({drivers: this.drivers, race: racename, positions: result})
       };
       fetch("https://f1dataservice.herokuapp.com/logRace", requestOptions)
 
@@ -230,7 +245,11 @@ h3 {
   color: red;
   align-self: center;
   margin-right: 20px;
-  font-size: 0.7rem;
+  font-size: 1.3vmin;
+}
+h4 {
+  padding: 0;
+  margin: 0;
 }
 ul {
   list-style-type: none;
@@ -250,7 +269,7 @@ a {
   width: 35vw;
   height: 8vh;
   margin-bottom: 2vh;
-  z-index: 2;
+  z-index: auto;
 }
 
 .finished {
@@ -300,6 +319,12 @@ a {
   height: 500px;
 }
 
+.showPlacements {
+  display: inline-block;
+  height: 80%;
+  padding-right: 5%;
+}
+
 .enterResults {
   display: none;
 }
@@ -329,7 +354,7 @@ a {
 }
 
 .active {
-  z-index: 5;
+  z-index: 10;
   display: block;
   position: fixed;
   left: 25%;
@@ -392,6 +417,39 @@ a {
   background: linear-gradient(to top, #346715, #05BC01);
 }
 
+/* Popup container */
+.popup {
+  visibility: hidden;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  width: 200px;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: left;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 5;
+  margin-left: -250px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup.show {
+  visibility: visible;
+}
+
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
 @media only screen and (max-width: 600px) {
   .race {
     width: 100%;
@@ -418,6 +476,10 @@ a {
     grid-template-columns: 1fr 2fr;
     column-gap: 5px;
     height: 50vh;
+  }
+
+  h3 {
+    font-size: 2vmin;
   }
 }
 </style>
