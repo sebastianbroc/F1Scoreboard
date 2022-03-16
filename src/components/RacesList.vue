@@ -12,7 +12,7 @@
                 <h3 v-if="race.finished">Rennen <br>abgeschlossen</h3>
                 <img v-if="race.finished" src="@/assets/finishers_list.png" class="showPlacements" @mouseover="showPopup(race.name)" @mouseleave="showPopup(race.name)">
                 <div class="popup" :id="`${race.name}`"><span class="popuptext" id="Popup">
-                  <h3>Finish-Rangfolge</h3>
+                  <h3 style="text-decoration: underline;">Finish-Rangfolge</h3>
                   <ol v-for="(driver, index) in race.finishers" :key="driver">
                     <h4 v-if="index < 6">{{index + 1}}. {{driver}}</h4>
                     <h4 v-if="index === 6">Schnellste Runde: {{driver}}</h4>
@@ -436,7 +436,7 @@ a {
   border-radius: 6px;
   position: absolute;
   z-index: 5;
-  margin-left: -250px;
+  margin-left: -300px;
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */

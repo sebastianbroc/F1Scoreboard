@@ -103,7 +103,6 @@ export default {
   backdrop-filter: blur(5px) grayscale(30%);
   height: 10vh;
   width: 100vw;
-  border-radius: 0 0 10px 10px;
 }
 h1 {
   color: #ffffff;
