@@ -213,7 +213,7 @@ li {
   display: inline-block;
   position: sticky;
   top: 20%;
-  width: 35vw;
+  width: 40vw;
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
@@ -266,7 +266,7 @@ a {
   background-color: rgba(0,0,30,1);
   position: relative;
   border-radius: 0 0 1vw 0;
-  width: 35vw;
+  width: 40vw;
   height: 8vh;
   margin-bottom: 2vh;
   z-index: auto;

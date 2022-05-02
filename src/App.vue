@@ -126,7 +126,7 @@ h1 {
 
 .content {
   display: grid;
-  grid-template-columns: 2fr 2fr 3fr;
+  grid-template-columns: 1fr 1fr;
   position: relative;
   left: 0;
   right: 0;
@@ -136,6 +136,7 @@ h1 {
 
 .TeamList {
   margin-top: 0;
+  display: none;
 }
 
 #app {

@@ -75,7 +75,7 @@ li {
   display: inline-block;
   position: sticky;
   top: 20%;
-  width: 30vw;
+  width: 40vw;
   height: 5vh;
   background-color: rgba(0,0,30,1);
   color: #ffffff;
@@ -100,7 +100,7 @@ li {
 }
 
 .driver .rank h2 {
-  padding-top: 20%;
+  padding-top: 10%;
   line-height: 100%;
   margin: auto;
   font-size: 2rem;
@@ -139,7 +139,7 @@ a {
   background-color: rgba(0,0,30,1);
   position: relative;
   border-radius: 0 0 1vw 0;
-  width: 30vw;
+  width: 40vw;
   height: 8vh;
   margin-bottom: 2vh;
 }
